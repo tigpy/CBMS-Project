@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Panel | CBMS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>body{font-family:'Roboto',Arial,sans-serif;background:#f5f7fa;}h1{font-family:'Montserrat',Arial,sans-serif;}</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger mb-4">
+    <div class="container"><a class="navbar-brand" href="Index.html"><i class="bi bi-building"></i> CBMS</a></div>
+  </nav>
+  <div class="container">
+    <h1 class="mb-4 text-danger"><i class="bi bi-shield-lock"></i> Secure Admin Panel</h1>
+    <ul class="nav nav-tabs mb-4" id="adminTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="users-tab" data-bs-toggle="tab" data-bs-target="#users" type="button" role="tab">Users</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab">Projects</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="inventory-tab" data-bs-toggle="tab" data-bs-target="#inventory" type="button" role="tab">Inventory</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contacts-tab" data-bs-toggle="tab" data-bs-target="#contacts" type="button" role="tab">Contacts</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="estimator-tab" data-bs-toggle="tab" data-bs-target="#estimator" type="button" role="tab">Estimator</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="gallery-tab" data-bs-toggle="tab" data-bs-target="#gallery" type="button" role="tab">Gallery</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="adminTabContent">
+      <!-- Users Tab -->
+      <div class="tab-pane fade show active" id="users" role="tabpanel">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>Users</h4>
+          <button class="btn btn-success btn-sm" id="addUserBtn"><i class="bi bi-plus"></i> Add User</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" id="usersTable">
+            <thead class="table-light">
+              <tr><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Projects Tab -->
+      <div class="tab-pane fade" id="projects" role="tabpanel">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>Projects</h4>
+          <button class="btn btn-success btn-sm" id="addProjectBtn"><i class="bi bi-plus"></i> Add Project</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" id="projectsTable">
+            <thead class="table-light">
+              <tr><th>Name</th><th>Status</th><th>Start</th><th>End</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Inventory Tab -->
+      <div class="tab-pane fade" id="inventory" role="tabpanel">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>Inventory</h4>
+          <button class="btn btn-success btn-sm" id="addInventoryBtn"><i class="bi bi-plus"></i> Add Item</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" id="inventoryTable">
+            <thead class="table-light">
+              <tr><th>Name</th><th>Quantity</th><th>Unit</th><th>Supplier</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Contacts Tab -->
+      <div class="tab-pane fade" id="contacts" role="tabpanel">
+        <h4>Contact Submissions</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" id="contactsTable">
+            <thead class="table-light">
+              <tr><th>Name</th><th>Email</th><th>Message</th><th>Date</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Estimator Tab -->
+      <div class="tab-pane fade" id="estimator" role="tabpanel">
+        <h4>AI Estimator Submissions</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" id="estimatorTable">
+            <thead class="table-light">
+              <tr><th>Project Name</th><th>Type</th><th>Area (sq ft)</th><th>Budget</th><th>Est. Cost</th><th>Est. Duration</th><th>Date</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Gallery Tab -->
+      <div class="tab-pane fade" id="gallery" role="tabpanel">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h4>Project Gallery</h4>
+          <button class="btn btn-success btn-sm" id="addGalleryBtn"><i class="bi bi-plus"></i> Add Image</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover" id="galleryTable">
+            <thead class="table-light">
+              <tr><th>Image</th><th>Title</th><th>Category</th><th>Description</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add Gallery Image Modal -->
+  <div class="modal fade" id="addGalleryModal" tabindex="-1" aria-labelledby="addGalleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="addGalleryForm">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addGalleryModalLabel">Add Gallery Image</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="galleryImageFile" class="form-label">Image File (URL or Upload)</label>
+              <input type="url" class="form-control mb-2" id="galleryImageUrl" placeholder="Paste image URL (optional)">
+              <input type="file" class="form-control" id="galleryImageFile" accept="image/*">
+            </div>
+            <div class="mb-3">
+              <label for="galleryTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="galleryTitle" required>
+            </div>
+            <div class="mb-3">
+              <label for="galleryCategory" class="form-label">Category</label>
+              <select class="form-select" id="galleryCategory" required>
+                <option value="">Select category</option>
+                <option>Residential</option>
+                <option>Commercial</option>
+                <option>Renovation</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="galleryDesc" class="form-label">Description</label>
+              <textarea class="form-control" id="galleryDesc" rows="2"></textarea>
+            </div>
+            <div id="galleryUploadMsg" class="alert d-none mt-2"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Add Image</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="src/admin-estimator.js"></script>
+  <script src="src/admin-gallery.js"></script>
+</body>
+</html>

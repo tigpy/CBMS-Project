@@ -1,0 +1,494 @@
+<!-- Construction Business Management System Responsive Home Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Construction Business Management System</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Google Fonts (already imported in main.css) -->
+  <!-- Main site CSS -->
+  <link rel="stylesheet" href="src/main.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="bi bi-building"></i> CBMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#admin">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-light py-5 text-center" id="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-7 text-md-start">
+          <h1 class="display-4 fw-bold">Construction Business Management System</h1>
+          <p class="lead mb-4">A modern, responsive website and mobile app for managing all your construction business activities efficiently.</p>
+          <a href="#contact" class="btn btn-primary btn-lg"><i class="bi bi-rocket"></i> Get Started</a>
+        </div>
+        <div class="col-md-5 d-none d-md-block">
+          <img src="src/assets/cbms-removebg-preview.png" alt="Construction Hero" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Wave Divider -->
+  <svg class="wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-opacity="1" d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,58.7C672,53,768,43,864,37.3C960,32,1056,32,1152,37.3C1248,43,1344,53,1392,58.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+
+  <!-- Services Section -->
+  <section class="container py-5" id="services">
+    <h2 class="text-center mb-4"><i class="bi bi-briefcase"></i> Our Services</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-info text-center">
+          <div class="card-body">
+            <i class="bi bi-people display-4 text-info mb-3"></i>
+            <h5 class="card-title">Worker Management</h5>
+            <p class="card-text">Track attendance, assign tasks, and manage your workforce with ease. Boost productivity and transparency with real-time updates.</p>
+            <button class="btn btn-outline-info mt-2" data-bs-toggle="modal" data-bs-target="#serviceWorkerModal">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-success text-center">
+          <div class="card-body">
+            <i class="bi bi-bar-chart display-4 text-success mb-3"></i>
+            <h5 class="card-title">Project Tracking</h5>
+            <p class="card-text">Monitor project progress, deadlines, and deliverables in real time. Stay on top of every milestone and avoid costly delays.</p>
+            <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#serviceProjectModal">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-warning text-center">
+          <div class="card-body">
+            <i class="bi bi-box-seam display-4 text-warning mb-3"></i>
+            <h5 class="card-title">Inventory Management</h5>
+            <p class="card-text">Keep tabs on materials, supplies, and inventory levels effortlessly. Reduce waste and optimize procurement.</p>
+            <button class="btn btn-outline-warning mt-2" data-bs-toggle="modal" data-bs-target="#serviceInventoryModal">Learn More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-danger text-center">
+          <div class="card-body">
+            <i class="bi bi-stars display-4 text-danger mb-3"></i>
+            <h5 class="card-title">AI Project Estimator</h5>
+            <p class="card-text">Get instant, AI-powered cost and timeline estimates for your construction projects. Upload your project details and let our smart estimator do the rest!</p>
+            <button class="btn btn-outline-danger mt-2" data-bs-toggle="modal" data-bs-target="#aiEstimatorModal">Try AI Estimator</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-secondary text-center">
+          <div class="card-body">
+            <i class="bi bi-phone display-4 text-secondary mb-3"></i>
+            <h5 class="card-title">Mobile App</h5>
+            <p class="card-text">Access all features on the go with our cross-platform mobile app. Stay productive from anywhere.</p>
+            <button class="btn btn-outline-secondary mt-2" data-bs-toggle="modal" data-bs-target="#serviceMobileModal">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Service Modals -->
+    <div class="modal fade" id="serviceWorkerModal" tabindex="-1" aria-labelledby="serviceWorkerModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceWorkerModalLabel">Worker Management</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Our Worker Management module lets you assign tasks, track attendance, and monitor performance. Get detailed reports and automate payroll calculations.</p>
+            <a href="worker-management.html" class="btn btn-info">Go to Worker Management Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="serviceProjectModal" tabindex="-1" aria-labelledby="serviceProjectModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceProjectModalLabel">Project Tracking</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Track every project from start to finish. Visual dashboards, Gantt charts, and real-time notifications keep your team aligned and on schedule.</p>
+            <a href="project-tracking.html" class="btn btn-success">Go to Project Tracking Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="serviceInventoryModal" tabindex="-1" aria-labelledby="serviceInventoryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceInventoryModalLabel">Inventory Management</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Manage your inventory with automated stock alerts, supplier integration, and detailed usage analytics. Never run out of critical materials again.</p>
+            <a href="inventory-management.html" class="btn btn-warning">Go to Inventory Management Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="serviceClientModal" tabindex="-1" aria-labelledby="serviceClientModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceClientModalLabel">Client Communication</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Communicate with clients through secure messaging, share project updates, and collect feedback directly from the platform.</p>
+            <a href="client-communication.html" class="btn btn-primary">Go to Client Communication Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="aiEstimatorModal" tabindex="-1" aria-labelledby="aiEstimatorModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="aiEstimatorModalLabel">AI Project Estimator</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="aiEstimatorForm">
+              <div class="mb-3">
+                <label for="estimatorProjectName" class="form-label">Project Name</label>
+                <input type="text" class="form-control" id="estimatorProjectName" required>
+              </div>
+              <div class="mb-3">
+                <label for="estimatorProjectType" class="form-label">Project Type</label>
+                <select class="form-select" id="estimatorProjectType" required>
+                  <option value="">Select type</option>
+                  <option>Residential</option>
+                  <option>Commercial</option>
+                  <option>Renovation</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="estimatorArea" class="form-label">Area (sq ft)</label>
+                <input type="number" class="form-control" id="estimatorArea" required min="1">
+              </div>
+              <div class="mb-3">
+                <label for="estimatorBudget" class="form-label">Budget (optional)</label>
+                <input type="number" class="form-control" id="estimatorBudget" min="0">
+              </div>
+              <button type="submit" class="btn btn-danger w-100">Estimate Now</button>
+            </form>
+            <div id="aiEstimatorResult" class="alert alert-info mt-3 d-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="serviceMobileModal" tabindex="-1" aria-labelledby="serviceMobileModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceMobileModalLabel">Mobile App</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Use our mobile app to manage your business from anywhere. Get instant notifications, upload site photos, and collaborate on the go.</p>
+            <a href="mobile-app.html" class="btn btn-secondary">Go to Mobile App Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="container py-5" id="gallery">
+    <h2 class="text-center mb-4"><i class="bi bi-images"></i> Project Gallery</h2>
+    <div class="d-flex justify-content-center mb-4" id="gallery-filters">
+      <button class="btn btn-outline-primary mx-1 active" data-filter="All">All</button>
+      <button class="btn btn-outline-info mx-1" data-filter="Residential">Residential</button>
+      <button class="btn btn-outline-success mx-1" data-filter="Commercial">Commercial</button>
+      <button class="btn btn-outline-warning mx-1" data-filter="Renovation">Renovation</button>
+    </div>
+    <!-- Gallery Sorting Dropdown -->
+    <div class="d-flex justify-content-end mb-3">
+      <div class="input-group w-auto">
+        <label class="input-group-text" for="gallery-sort">Sort by</label>
+        <select class="form-select" id="gallery-sort">
+          <option value="default">Default</option>
+          <option value="title-asc">Title (A-Z)</option>
+          <option value="title-desc">Title (Z-A)</option>
+          <option value="category">Category</option>
+        </select>
+      </div>
+    </div>
+    <div class="row g-3" id="gallery-grid">
+      <!-- Images will be loaded here by JS -->
+    </div>
+    <!-- Gallery Modal for Project Details -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="galleryModalTitle"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <img id="galleryModalImg" src="" alt="Project Image" class="img-fluid rounded mb-3" style="max-height:400px;object-fit:contain;">
+            <div id="galleryModalDesc" class="mb-2"></div>
+            <span id="galleryModalCategory" class="badge bg-secondary"></span>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-outline-secondary" id="galleryPrevBtn"><i class="bi bi-chevron-left"></i> Prev</button>
+            <button type="button" class="btn btn-outline-secondary" id="galleryNextBtn">Next <i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Wave Divider -->
+  <svg class="wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-opacity="1" d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,58.7C672,53,768,43,864,37.3C960,32,1056,32,1152,37.3C1248,43,1344,53,1392,58.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+
+  <!-- Testimonial Carousel (React) -->
+  <section class="container py-5" id="testimonials">
+    <h2 class="text-center mb-4"><i class="bi bi-chat-quote"></i> Client Testimonials</h2>
+    <div id="testimonial-carousel-root"></div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="container py-5" id="contact">
+    <h2 class="text-center mb-4"><i class="bi bi-envelope"></i> Contact Us</h2>
+    <form id="contactForm" class="mx-auto" style="max-width:500px;">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" required>
+        <div class="invalid-feedback">Please enter your name.</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required>
+        <div class="invalid-feedback">Please enter a valid email.</div>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="4" required></textarea>
+        <div class="invalid-feedback">Please enter your message.</div>
+      </div>
+      <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Send</button>
+    </form>
+    <div id="contactSuccess" class="alert alert-success mt-3 d-none">Thank you for contacting us!</div>
+    <div class="alert alert-warning mt-3">
+      <strong>New!</strong> Try our <a href="#aiEstimatorModal" data-bs-toggle="modal" class="alert-link">AI Project Estimator</a> for instant project cost and timeline estimates.
+    </div>
+  </section>
+
+  <!-- Admin Login Form -->
+  <section class="container py-5" id="admin">
+    <h2 class="text-center mb-4"><i class="bi bi-shield-lock"></i> Admin Login</h2>
+    <form id="adminLoginForm" class="mx-auto" style="max-width:400px;">
+      <div class="mb-3">
+        <label for="adminUser" class="form-label">Username</label>
+        <input type="text" class="form-control" id="adminUser" required>
+      </div>
+      <div class="mb-3">
+        <label for="adminPass" class="form-label">Password</label>
+        <input type="password" class="form-control" id="adminPass" required>
+      </div>
+      <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right"></i> Login</button>
+    </form>
+    <div id="adminLoginMsg" class="alert mt-3 d-none"></div>
+  </section>
+
+  <!-- About Us Section (moved to bottom) -->
+  <section class="container py-5" id="about">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2>About Us</h2>
+        <p>We are a dedicated team passionate about revolutionizing construction business management. Our mission is to empower construction companies with digital tools for project tracking, worker management, and seamless communication.</p>
+        <ul>
+          <li><strong>Team Leader:</strong> Alex Smith</li>
+          <li><strong>Backend Developer:</strong> Priya Patel</li>
+          <li><strong>Frontend Developer:</strong> John Lee</li>
+          <li><strong>Mobile App Developer:</strong> Maria Garcia</li>
+          <li><strong>QA & Deployment:</strong> Ahmed Khan</li>
+        </ul>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="https://img.icons8.com/ios-filled/150/000000/group-foreground-selected.png" alt="Team" class="img-fluid mb-3">
+        <h5>Our Mission</h5>
+        <p>To deliver reliable, user-friendly, and innovative solutions for the construction industry.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-3">
+    &copy; 2025 Construction Business Management System
+  </footer>
+
+  <!-- Bootstrap JS (ensure only one version and at the end) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="src/main.js"></script>
+  <script src="src/testimonial.js"></script>
+  <script src="src/contact.js"></script>
+  <script src="src/admin.js"></script>
+  <script src="src/ai-estimator.js"></script>
+  <script>
+    // --- Enhanced Gallery Section Logic ---
+    let galleryImages = [];
+    let currentGalleryIndex = 0;
+    let currentSort = 'default';
+    const galleryGrid = document.getElementById('gallery-grid');
+    const galleryFilters = document.getElementById('gallery-filters');
+    const gallerySort = document.getElementById('gallery-sort');
+
+    // Show loading spinner
+    galleryGrid.innerHTML = `<div class="d-flex justify-content-center w-100 py-5"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>`;
+
+    fetch('/api/gallery')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch gallery');
+        return res.json();
+      })
+      .then(images => {
+        images.forEach(img => img.featured = Math.random() < 0.25);
+        galleryImages = images;
+        if (!images.length) {
+          galleryGrid.innerHTML = `<div class='text-center w-100 py-5 text-muted'><i class='bi bi-emoji-frown fs-1'></i><br>No projects found.</div>`;
+        } else {
+          renderGallery('All', currentSort);
+        }
+      })
+      .catch(err => {
+        galleryGrid.innerHTML = `<div class='text-center w-100 py-5 text-danger'><i class='bi bi-exclamation-triangle fs-1'></i><br>Could not load gallery.<br><span class='small'>${err.message}</span></div>`;
+      });
+
+    function sortGallery(images, sort) {
+      let arr = [...images];
+      if (sort === 'title-asc') arr.sort((a,b) => (a.title||'').localeCompare(b.title||''));
+      else if (sort === 'title-desc') arr.sort((a,b) => (b.title||'').localeCompare(a.title||''));
+      else if (sort === 'category') arr.sort((a,b) => (a.category||'').localeCompare(b.category||''));
+      return arr;
+    }
+
+    function renderGallery(category, sort = 'default') {
+      let filtered = category==='All' ? galleryImages : galleryImages.filter(img => img.category===category);
+      filtered = sortGallery(filtered, sort);
+      if (!filtered.length) {
+        galleryGrid.innerHTML = `<div class='text-center w-100 py-5 text-muted'><i class='bi bi-emoji-frown fs-1'></i><br>No projects found in this category.</div>`;
+        return;
+      }
+      galleryGrid.innerHTML = filtered.map((img, idx) => {
+        let typeIcon = 'bi bi-house';
+        if (img.category === 'Commercial') typeIcon = 'bi bi-building';
+        else if (img.category === 'Renovation') typeIcon = 'bi bi-brush';
+        else if (img.category === 'Residential') typeIcon = 'bi bi-house-door';
+        return `
+          <div class='col-6 col-md-4 col-lg-3 d-flex align-items-stretch'>
+            <div class='gallery-card w-100 h-100 position-relative' data-idx='${galleryImages.indexOf(img)}' style="opacity:0;transform:scale(0.96);transition:all .5s cubic-bezier(.4,2,.3,1);">
+              <img src='${img.url || img.imageUrl}' class='gallery-img' alt='${img.title||"Project"}'>
+              <span class="gallery-fav"><i class="bi bi-heart"></i></span>
+              <div class='gallery-overlay'>
+                <span class="gallery-type-icon ${typeIcon}"></span>
+                <div class='gallery-title'>${img.title||''}</div>
+                <button class='gallery-view-btn btn btn-outline-primary btn-sm mt-2'>View Details</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      // Animate cards in
+      galleryGrid.querySelectorAll('.gallery-card').forEach((card, i) => {
+        setTimeout(() => {
+          card.style.opacity = 1;
+          card.style.transform = 'scale(1)';
+        }, 80 + i * 80);
+      });
+      galleryGrid.querySelectorAll('.gallery-img').forEach(img => {
+        img.addEventListener('load',()=>img.classList.add('loaded'));
+      });
+    }
+    // Filter buttons
+    galleryFilters.addEventListener('click', function(e) {
+      const btn = e.target.closest('button[data-filter]');
+      if (btn) {
+        this.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGallery(btn.getAttribute('data-filter'), currentSort);
+      }
+    });
+    // Sorting dropdown
+    gallerySort.addEventListener('change', function() {
+      currentSort = this.value;
+      const activeBtn = galleryFilters.querySelector('button.active');
+      const category = activeBtn ? activeBtn.getAttribute('data-filter') : 'All';
+      renderGallery(category, currentSort);
+    });
+    // Card click events
+    galleryGrid.addEventListener('click', function(e) {
+      const card = e.target.closest('.gallery-card');
+      if (!card) return;
+      let idx = +card.getAttribute('data-idx');
+      if (e.target.classList.contains('gallery-view-btn') || e.target.classList.contains('gallery-img')) {
+        openGalleryModal(idx);
+      }
+      // Favorite icon
+      if (e.target.classList.contains('gallery-fav') || e.target.closest('.gallery-fav')) {
+        const fav = e.target.classList.contains('gallery-fav') ? e.target : e.target.closest('.gallery-fav');
+        fav.classList.toggle('favorited');
+        if (fav.classList.contains('favorited') && window.confetti) {
+          const rect = fav.getBoundingClientRect();
+          confetti({
+            particleCount: 32,
+            spread: 60,
+            origin: {
+              x: (rect.left + rect.width/2) / window.innerWidth,
+              y: (rect.top + rect.height/2) / window.innerHeight
+            },
+            colors: ['#ff416c','#ff4b2b','#007cf0','#00dfd8']
+          });
+        }
+      }
+    });
+    function openGalleryModal(idx) {
+      if (!galleryImages.length) return;
+      currentGalleryIndex = idx;
+      const img = galleryImages[idx];
+      document.getElementById('galleryModalImg').src = img.url || img.imageUrl;
+      document.getElementById('galleryModalTitle').textContent = img.title || 'Project';
+      document.getElementById('galleryModalDesc').textContent = img.description || '';
+      document.getElementById('galleryModalCategory').textContent = img.category || '';
+      let modal = new bootstrap.Modal(document.getElementById('galleryModal'));
+      modal.show();
+    }
+    document.getElementById('galleryPrevBtn').onclick = function() {
+      if (!galleryImages.length) return;
+      currentGalleryIndex = (currentGalleryIndex-1+galleryImages.length)%galleryImages.length;
+      openGalleryModal(currentGalleryIndex);
+    };
+    document.getElementById('galleryNextBtn').onclick = function() {
+      if (!galleryImages.length) return;
+      currentGalleryIndex = (currentGalleryIndex+1)%galleryImages.length;
+      openGalleryModal(currentGalleryIndex);
+    };
+  </script>
+</body>
+</html>

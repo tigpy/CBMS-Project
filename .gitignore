@@ -1,0 +1,23 @@
+# Node
+node_modules/
+.env
+.DS_Store
+*.log
+npm-debug.log*
+
+# VSCode
+.vscode/
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Build
+/dist
+/build
+
+# Misc
+*.local
+*.cache
+*.tmp
+*.swp
