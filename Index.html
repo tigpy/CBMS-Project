@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Construction Business Management System</title>
+  <meta name="description" content="CBMS is a modern, full-stack web application for construction business management, including project tracking, worker management, inventory, AI estimation, and more.">
+  <meta name="theme-color" content="#007cf0">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
@@ -12,25 +14,60 @@
   <!-- Google Fonts (already imported in main.css) -->
   <!-- Main site CSS -->
   <link rel="stylesheet" href="src/main.css">
+  <link rel="icon" type="image/x-icon" href="./src/assets/image.png">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
 </head>
-<body>
+<body role="document">
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <!-- === MODERN, COMPACT NAVBAR WITH ADVANCED UX FEATURES === -->
+  <nav class="navbar navbar-expand-lg" aria-label="Main Navigation">
     <div class="container">
-      <a class="navbar-brand" href="#"><i class="bi bi-building"></i> CBMS</a>
+      <a class="navbar-brand" href="#" aria-label="CBMS Home"><i class="bi bi-building"></i> CBMS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="#admin">Admin</a></li>
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#hero" aria-label="Home section">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about" aria-label="About Us section">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services" aria-label="Services section">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery" aria-label="Gallery section">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Contact section">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#admin" aria-label="Admin section">Admin</a></li>
         </ul>
+        <div class="d-flex align-items-center ms-lg-3 gap-2 flex-wrap flex-lg-nowrap">
+          <!-- Search Icon Button -->
+          <button id="navbarSearchBtn" class="btn btn-link text-white p-0" style="font-size:1.4rem;outline:none;" aria-label="Open search">
+            <i class="bi bi-search"></i>
+          </button>
+          <!-- Search Box (hidden by default) -->
+          <form id="navbarSearchForm" class="d-flex position-relative" style="display:none;max-width:180px;" role="search" autocomplete="off">
+            <input class="form-control form-control-sm me-2" type="search" placeholder="Search..." aria-label="Search">
+            <button class="btn btn-primary btn-sm" type="submit" aria-label="Submit search"><i class="bi bi-arrow-right"></i></button>
+            <div id="searchSuggestions" class="position-absolute w-100" style="z-index:1200;"></div>
+          </form>
+          <!-- Dark/Light Mode Toggle -->
+          <button id="modeToggleBtn" aria-label="Switch to dark mode" title="Toggle dark/light mode" style="background:none;border:none;color:#00dfd8;font-size:1.3rem;cursor:pointer;"><i class="bi bi-moon-stars"></i></button>
+          <!-- User Profile Dropdown -->
+          <div id="userProfileDropdown" style="position:relative;display:inline-block;">
+            <button id="profileDropdownBtn" aria-label="User profile" aria-haspopup="true" aria-expanded="false" style="background:none;border:none;color:#00dfd8;font-size:1.4rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;"><i class="bi bi-person-circle"></i></button>
+            <div id="profileDropdownMenu" role="menu" aria-hidden="true" tabindex="-1" style="display:none;position:absolute;right:0;top:120%;background:rgba(34,38,45,0.98);color:#fff;border-radius:1rem;box-shadow:0 4px 24px #007cf055;min-width:150px;padding:0.5rem 0;z-index:1500;">
+              <a href="#" role="menuitem" tabindex="0">Profile</a>
+              <a href="#" role="menuitem" tabindex="0">Settings</a>
+              <button type="button" role="menuitem" tabindex="0">Logout</button>
+            </div>
+          </div>
+          <!-- Language Selector -->
+          <select id="langSelect" aria-label="Select language" class="form-select form-select-sm" style="width:auto;min-width:90px;max-width:120px;">
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+            <option value="hi">HI</option>
+            <option value="zh">中文</option>
+          </select>
+        </div>
       </div>
     </div>
   </nav>
@@ -40,9 +77,9 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-7 text-md-start">
-          <h1 class="display-4 fw-bold">Construction Business Management System</h1>
-          <p class="lead mb-4">A modern, responsive website and mobile app for managing all your construction business activities efficiently.</p>
-          <a href="#contact" class="btn btn-primary btn-lg"><i class="bi bi-rocket"></i> Get Started</a>
+          <h1 class="display-4 fw-bold" data-i18n="Construction Business Management System">Construction Business Management System</h1>
+          <p class="lead mb-4" data-i18n="A modern, responsive website and mobile app for managing all your construction business activities efficiently.">A modern, responsive website and mobile app for managing all your construction business activities efficiently.</p>
+          <a href="#contact" class="btn btn-primary btn-lg" data-i18n="Get Started"><i class="bi bi-rocket"></i> Get Started</a>
         </div>
         <div class="col-md-5 d-none d-md-block">
           <img src="src/assets/cbms-removebg-preview.png" alt="Construction Hero" class="img-fluid">
@@ -53,17 +90,60 @@
   <!-- Wave Divider -->
   <svg class="wave" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-opacity="1" d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,58.7C672,53,768,43,864,37.3C960,32,1056,32,1152,37.3C1248,43,1344,53,1392,58.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
 
+  <!-- === DASHBOARD WIDGETS SECTION (for Admin/Home) === -->
+  <section class="container py-5" id="dashboard" aria-label="Dashboard Widgets">
+    <h2 class="text-center mb-4" data-i18n="Dashboard Overview"><i class="bi bi-speedometer2"></i> Dashboard Overview</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center shadow-sm dashboard-widget">
+          <div class="card-body">
+            <i class="bi bi-people display-5 text-info mb-2"></i>
+            <h5 class="card-title" data-i18n="Active Workers">Active Workers</h5>
+            <div class="display-6 fw-bold" id="widget-workers">--</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center shadow-sm dashboard-widget">
+          <div class="card-body">
+            <i class="bi bi-bar-chart display-5 text-success mb-2"></i>
+            <h5 class="card-title" data-i18n="Ongoing Projects">Ongoing Projects</h5>
+            <div class="display-6 fw-bold" id="widget-projects">--</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center shadow-sm dashboard-widget">
+          <div class="card-body">
+            <i class="bi bi-box-seam display-5 text-warning mb-2"></i>
+            <h5 class="card-title" data-i18n="Inventory Items">Inventory Items</h5>
+            <div class="display-6 fw-bold" id="widget-inventory">--</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center shadow-sm dashboard-widget">
+          <div class="card-body">
+            <i class="bi bi-currency-dollar display-5 text-danger mb-2"></i>
+            <h5 class="card-title" data-i18n="Estimates Today">Estimates Today</h5>
+            <div class="display-6 fw-bold" id="widget-estimates">--</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Section -->
   <section class="container py-5" id="services">
-    <h2 class="text-center mb-4"><i class="bi bi-briefcase"></i> Our Services</h2>
+    <h2 class="text-center mb-4" data-i18n="Our Services"><i class="bi bi-briefcase"></i> Our Services</h2>
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100 border-info text-center">
           <div class="card-body">
             <i class="bi bi-people display-4 text-info mb-3"></i>
-            <h5 class="card-title">Worker Management</h5>
-            <p class="card-text">Track attendance, assign tasks, and manage your workforce with ease. Boost productivity and transparency with real-time updates.</p>
-            <button class="btn btn-outline-info mt-2" data-bs-toggle="modal" data-bs-target="#serviceWorkerModal">Learn More</button>
+            <h5 class="card-title" data-i18n="Worker Management">Worker Management</h5>
+            <p class="card-text" data-i18n="Track attendance, assign tasks, and manage your workforce with ease. Boost productivity and transparency with real-time updates.">Track attendance, assign tasks, and manage your workforce with ease. Boost productivity and transparency with real-time updates.</p>
+            <button class="btn btn-outline-info mt-2" data-bs-toggle="modal" data-bs-target="#serviceWorkerModal" data-i18n="Learn More">Learn More</button>
           </div>
         </div>
       </div>
@@ -71,9 +151,9 @@
         <div class="card h-100 border-success text-center">
           <div class="card-body">
             <i class="bi bi-bar-chart display-4 text-success mb-3"></i>
-            <h5 class="card-title">Project Tracking</h5>
-            <p class="card-text">Monitor project progress, deadlines, and deliverables in real time. Stay on top of every milestone and avoid costly delays.</p>
-            <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#serviceProjectModal">Learn More</button>
+            <h5 class="card-title" data-i18n="Project Tracking">Project Tracking</h5>
+            <p class="card-text" data-i18n="Monitor project progress, deadlines, and deliverables in real time. Stay on top of every milestone and avoid costly delays.">Monitor project progress, deadlines, and deliverables in real time. Stay on top of every milestone and avoid costly delays.</p>
+            <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#serviceProjectModal" data-i18n="Learn More">Learn More</button>
           </div>
         </div>
       </div>
@@ -81,9 +161,9 @@
         <div class="card h-100 border-warning text-center">
           <div class="card-body">
             <i class="bi bi-box-seam display-4 text-warning mb-3"></i>
-            <h5 class="card-title">Inventory Management</h5>
-            <p class="card-text">Keep tabs on materials, supplies, and inventory levels effortlessly. Reduce waste and optimize procurement.</p>
-            <button class="btn btn-outline-warning mt-2" data-bs-toggle="modal" data-bs-target="#serviceInventoryModal">Learn More</button>
+            <h5 class="card-title" data-i18n="Inventory Management">Inventory Management</h5>
+            <p class="card-text" data-i18n="Keep tabs on materials, supplies, and inventory levels effortlessly. Reduce waste and optimize procurement.">Keep tabs on materials, supplies, and inventory levels effortlessly. Reduce waste and optimize procurement.</p>
+            <button class="btn btn-outline-warning mt-2" data-bs-toggle="modal" data-bs-target="#serviceInventoryModal" data-i18n="Learn More">Learn More</button>
           </div>
         </div>
       </div>
@@ -91,9 +171,9 @@
         <div class="card h-100 border-danger text-center">
           <div class="card-body">
             <i class="bi bi-stars display-4 text-danger mb-3"></i>
-            <h5 class="card-title">AI Project Estimator</h5>
-            <p class="card-text">Get instant, AI-powered cost and timeline estimates for your construction projects. Upload your project details and let our smart estimator do the rest!</p>
-            <button class="btn btn-outline-danger mt-2" data-bs-toggle="modal" data-bs-target="#aiEstimatorModal">Try AI Estimator</button>
+            <h5 class="card-title" data-i18n="AI Project Estimator">AI Project Estimator</h5>
+            <p class="card-text" data-i18n="Get instant, AI-powered cost and timeline estimates for your construction projects. Upload your project details and let our smart estimator do the rest!">Get instant, AI-powered cost and timeline estimates for your construction projects. Upload your project details and let our smart estimator do the rest!</p>
+            <button class="btn btn-outline-danger mt-2" data-bs-toggle="modal" data-bs-target="#aiEstimatorModal" data-i18n="Try AI Estimator">Try AI Estimator</button>
           </div>
         </div>
       </div>
@@ -101,9 +181,9 @@
         <div class="card h-100 border-secondary text-center">
           <div class="card-body">
             <i class="bi bi-phone display-4 text-secondary mb-3"></i>
-            <h5 class="card-title">Mobile App</h5>
-            <p class="card-text">Access all features on the go with our cross-platform mobile app. Stay productive from anywhere.</p>
-            <button class="btn btn-outline-secondary mt-2" data-bs-toggle="modal" data-bs-target="#serviceMobileModal">Learn More</button>
+            <h5 class="card-title" data-i18n="Mobile App">Mobile App</h5>
+            <p class="card-text" data-i18n="Access all features on the go with our cross-platform mobile app. Stay productive from anywhere.">Access all features on the go with our cross-platform mobile app. Stay productive from anywhere.</p>
+            <button class="btn btn-outline-secondary mt-2" data-bs-toggle="modal" data-bs-target="#serviceMobileModal" data-i18n="Learn More">Learn More</button>
           </div>
         </div>
       </div>
@@ -113,12 +193,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="serviceWorkerModalLabel">Worker Management</h5>
+            <h5 class="modal-title" id="serviceWorkerModalLabel" data-i18n="Worker Management">Worker Management</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Our Worker Management module lets you assign tasks, track attendance, and monitor performance. Get detailed reports and automate payroll calculations.</p>
-            <a href="worker-management.html" class="btn btn-info">Go to Worker Management Page</a>
+            <p data-i18n="Our Worker Management module lets you assign tasks, track attendance, and monitor performance. Get detailed reports and automate payroll calculations.">Our Worker Management module lets you assign tasks, track attendance, and monitor performance. Get detailed reports and automate payroll calculations.</p>
+            <a href="worker-management.html" class="btn btn-info" data-i18n="Go to Worker Management Page">Go to Worker Management Page</a>
           </div>
         </div>
       </div>
@@ -127,12 +207,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="serviceProjectModalLabel">Project Tracking</h5>
+            <h5 class="modal-title" id="serviceProjectModalLabel" data-i18n="Project Tracking">Project Tracking</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Track every project from start to finish. Visual dashboards, Gantt charts, and real-time notifications keep your team aligned and on schedule.</p>
-            <a href="project-tracking.html" class="btn btn-success">Go to Project Tracking Page</a>
+            <p data-i18n="Track every project from start to finish. Visual dashboards, Gantt charts, and real-time notifications keep your team aligned and on schedule.">Track every project from start to finish. Visual dashboards, Gantt charts, and real-time notifications keep your team aligned and on schedule.</p>
+            <a href="project-tracking.html" class="btn btn-success" data-i18n="Go to Project Tracking Page">Go to Project Tracking Page</a>
           </div>
         </div>
       </div>
@@ -141,12 +221,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="serviceInventoryModalLabel">Inventory Management</h5>
+            <h5 class="modal-title" id="serviceInventoryModalLabel" data-i18n="Inventory Management">Inventory Management</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Manage your inventory with automated stock alerts, supplier integration, and detailed usage analytics. Never run out of critical materials again.</p>
-            <a href="inventory-management.html" class="btn btn-warning">Go to Inventory Management Page</a>
+            <p data-i18n="Manage your inventory with automated stock alerts, supplier integration, and detailed usage analytics. Never run out of critical materials again.">Manage your inventory with automated stock alerts, supplier integration, and detailed usage analytics. Never run out of critical materials again.</p>
+            <a href="inventory-management.html" class="btn btn-warning" data-i18n="Go to Inventory Management Page">Go to Inventory Management Page</a>
           </div>
         </div>
       </div>
@@ -155,12 +235,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="serviceClientModalLabel">Client Communication</h5>
+            <h5 class="modal-title" id="serviceClientModalLabel" data-i18n="Client Communication">Client Communication</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Communicate with clients through secure messaging, share project updates, and collect feedback directly from the platform.</p>
-            <a href="client-communication.html" class="btn btn-primary">Go to Client Communication Page</a>
+            <p data-i18n="Communicate with clients through secure messaging, share project updates, and collect feedback directly from the platform.">Communicate with clients through secure messaging, share project updates, and collect feedback directly from the platform.</p>
+            <a href="client-communication.html" class="btn btn-primary" data-i18n="Go to Client Communication Page">Go to Client Communication Page</a>
           </div>
         </div>
       </div>
@@ -169,34 +249,34 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="aiEstimatorModalLabel">AI Project Estimator</h5>
+            <h5 class="modal-title" id="aiEstimatorModalLabel" data-i18n="AI Project Estimator">AI Project Estimator</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form id="aiEstimatorForm">
               <div class="mb-3">
-                <label for="estimatorProjectName" class="form-label">Project Name</label>
+                <label for="estimatorProjectName" class="form-label" data-i18n="Project Name">Project Name</label>
                 <input type="text" class="form-control" id="estimatorProjectName" required>
               </div>
               <div class="mb-3">
-                <label for="estimatorProjectType" class="form-label">Project Type</label>
+                <label for="estimatorProjectType" class="form-label" data-i18n="Project Type">Project Type</label>
                 <select class="form-select" id="estimatorProjectType" required>
                   <option value="">Select type</option>
-                  <option>Residential</option>
-                  <option>Commercial</option>
-                  <option>Renovation</option>
-                  <option>Other</option>
+                  <option data-i18n="Residential">Residential</option>
+                  <option data-i18n="Commercial">Commercial</option>
+                  <option data-i18n="Renovation">Renovation</option>
+                  <option data-i18n="Other">Other</option>
                 </select>
               </div>
               <div class="mb-3">
-                <label for="estimatorArea" class="form-label">Area (sq ft)</label>
+                <label for="estimatorArea" class="form-label" data-i18n="Area (sq ft)">Area (sq ft)</label>
                 <input type="number" class="form-control" id="estimatorArea" required min="1">
               </div>
               <div class="mb-3">
-                <label for="estimatorBudget" class="form-label">Budget (optional)</label>
+                <label for="estimatorBudget" class="form-label" data-i18n="Budget (optional)">Budget (optional)</label>
                 <input type="number" class="form-control" id="estimatorBudget" min="0">
               </div>
-              <button type="submit" class="btn btn-danger w-100">Estimate Now</button>
+              <button type="submit" class="btn btn-danger w-100" data-i18n="Estimate Now">Estimate Now</button>
             </form>
             <div id="aiEstimatorResult" class="alert alert-info mt-3 d-none"></div>
           </div>
@@ -207,12 +287,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="serviceMobileModalLabel">Mobile App</h5>
+            <h5 class="modal-title" id="serviceMobileModalLabel" data-i18n="Mobile App">Mobile App</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Use our mobile app to manage your business from anywhere. Get instant notifications, upload site photos, and collaborate on the go.</p>
-            <a href="mobile-app.html" class="btn btn-secondary">Go to Mobile App Page</a>
+            <p data-i18n="Use our mobile app to manage your business from anywhere. Get instant notifications, upload site photos, and collaborate on the go.">Use our mobile app to manage your business from anywhere. Get instant notifications, upload site photos, and collaborate on the go.</p>
+            <a href="mobile-app.html" class="btn btn-secondary" data-i18n="Go to Mobile App Page">Go to Mobile App Page</a>
           </div>
         </div>
       </div>
@@ -221,7 +301,7 @@
 
   <!-- Gallery Section -->
   <section class="container py-5" id="gallery">
-    <h2 class="text-center mb-4"><i class="bi bi-images"></i> Project Gallery</h2>
+    <h2 class="text-center mb-4" data-i18n="Project Gallery"><i class="bi bi-images"></i> Project Gallery</h2>
     <div class="d-flex justify-content-center mb-4" id="gallery-filters">
       <button class="btn btn-outline-primary mx-1 active" data-filter="All">All</button>
       <button class="btn btn-outline-info mx-1" data-filter="Residential">Residential</button>
@@ -269,50 +349,50 @@
 
   <!-- Testimonial Carousel (React) -->
   <section class="container py-5" id="testimonials">
-    <h2 class="text-center mb-4"><i class="bi bi-chat-quote"></i> Client Testimonials</h2>
+    <h2 class="text-center mb-4" data-i18n="Client Testimonials"><i class="bi bi-chat-quote"></i> Client Testimonials</h2>
     <div id="testimonial-carousel-root"></div>
   </section>
 
   <!-- Contact Form -->
   <section class="container py-5" id="contact">
-    <h2 class="text-center mb-4"><i class="bi bi-envelope"></i> Contact Us</h2>
-    <form id="contactForm" class="mx-auto" style="max-width:500px;">
+    <h2 class="text-center mb-4" data-i18n="Contact Us"><i class="bi bi-envelope"></i> Contact Us</h2>
+    <form id="contactForm" class="mx-auto" style="max-width:500px;" aria-label="Contact form">
       <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" required>
-        <div class="invalid-feedback">Please enter your name.</div>
+        <label for="name" class="form-label" data-i18n="Name">Name</label>
+        <input type="text" class="form-control" id="name" required aria-required="true" aria-label="Name">
+        <div class="invalid-feedback" data-i18n="Please enter your name.">Please enter your name.</div>
       </div>
       <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" required>
-        <div class="invalid-feedback">Please enter a valid email.</div>
+        <label for="email" class="form-label" data-i18n="Email">Email</label>
+        <input type="email" class="form-control" id="email" required aria-required="true" aria-label="Email">
+        <div class="invalid-feedback" data-i18n="Please enter a valid email.">Please enter a valid email.</div>
       </div>
       <div class="mb-3">
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="4" required></textarea>
-        <div class="invalid-feedback">Please enter your message.</div>
+        <label for="message" class="form-label" data-i18n="Message">Message</label>
+        <textarea class="form-control" id="message" rows="4" required aria-required="true" aria-label="Message"></textarea>
+        <div class="invalid-feedback" data-i18n="Please enter your message.">Please enter your message.</div>
       </div>
-      <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Send</button>
+      <button type="submit" class="btn btn-primary" aria-label="Send message"><i class="bi bi-send"></i> Send</button>
     </form>
-    <div id="contactSuccess" class="alert alert-success mt-3 d-none">Thank you for contacting us!</div>
+    <div id="contactSuccess" class="alert alert-success mt-3 d-none" data-i18n="Thank you for contacting us!">Thank you for contacting us!</div>
     <div class="alert alert-warning mt-3">
-      <strong>New!</strong> Try our <a href="#aiEstimatorModal" data-bs-toggle="modal" class="alert-link">AI Project Estimator</a> for instant project cost and timeline estimates.
+      <strong>New!</strong> Try our <a href="#aiEstimatorModal" data-bs-toggle="modal" class="alert-link" data-i18n="AI Project Estimator">AI Project Estimator</a> for instant project cost and timeline estimates.
     </div>
   </section>
 
   <!-- Admin Login Form -->
   <section class="container py-5" id="admin">
-    <h2 class="text-center mb-4"><i class="bi bi-shield-lock"></i> Admin Login</h2>
-    <form id="adminLoginForm" class="mx-auto" style="max-width:400px;">
+    <h2 class="text-center mb-4" data-i18n="Admin Login"><i class="bi bi-shield-lock"></i> Admin Login</h2>
+    <form id="adminLoginForm" class="mx-auto" style="max-width:400px;" aria-label="Admin login form">
       <div class="mb-3">
-        <label for="adminUser" class="form-label">Username</label>
-        <input type="text" class="form-control" id="adminUser" required>
+        <label for="adminUser" class="form-label" data-i18n="Username">Username</label>
+        <input type="text" class="form-control" id="adminUser" required aria-required="true" aria-label="Admin Username">
       </div>
       <div class="mb-3">
-        <label for="adminPass" class="form-label">Password</label>
-        <input type="password" class="form-control" id="adminPass" required>
+        <label for="adminPass" class="form-label" data-i18n="Password">Password</label>
+        <input type="password" class="form-control" id="adminPass" required aria-required="true" aria-label="Admin Password">
       </div>
-      <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right"></i> Login</button>
+      <button type="submit" class="btn btn-primary" aria-label="Login"><i class="bi bi-box-arrow-in-right"></i> Login</button>
     </form>
     <div id="adminLoginMsg" class="alert mt-3 d-none"></div>
   </section>
@@ -321,8 +401,8 @@
   <section class="container py-5" id="about">
     <div class="row align-items-center">
       <div class="col-md-6">
-        <h2>About Us</h2>
-        <p>We are a dedicated team passionate about revolutionizing construction business management. Our mission is to empower construction companies with digital tools for project tracking, worker management, and seamless communication.</p>
+        <h2 data-i18n="About Us">About Us</h2>
+        <p data-i18n="We are a dedicated team passionate about revolutionizing construction business management. Our mission is to empower construction companies with digital tools for project tracking, worker management, and seamless communication.">We are a dedicated team passionate about revolutionizing construction business management. Our mission is to empower construction companies with digital tools for project tracking, worker management, and seamless communication.</p>
         <ul>
           <li><strong>Team Leader:</strong> Alex Smith</li>
           <li><strong>Backend Developer:</strong> Priya Patel</li>
@@ -333,14 +413,14 @@
       </div>
       <div class="col-md-6 text-center">
         <img src="https://img.icons8.com/ios-filled/150/000000/group-foreground-selected.png" alt="Team" class="img-fluid mb-3">
-        <h5>Our Mission</h5>
-        <p>To deliver reliable, user-friendly, and innovative solutions for the construction industry.</p>
+        <h5 data-i18n="Our Mission">Our Mission</h5>
+        <p data-i18n="To deliver reliable, user-friendly, and innovative solutions for the construction industry.">To deliver reliable, user-friendly, and innovative solutions for the construction industry.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-primary text-white text-center py-3">
+  <footer class="bg-primary text-white text-center py-3" aria-label="Footer">
     &copy; 2025 Construction Business Management System
   </footer>
 
@@ -360,9 +440,62 @@
     const galleryFilters = document.getElementById('gallery-filters');
     const gallerySort = document.getElementById('gallery-sort');
 
+    // Sample images for fallback/demo
+    const sampleGalleryImages = [
+      {
+        title: 'Modern Villa',
+        description: 'A luxury residential villa with eco-friendly features.',
+        category: 'Residential',
+        url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Downtown Office Complex',
+        description: 'A state-of-the-art commercial office building in the city center.',
+        category: 'Commercial',
+        url: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Renovated Heritage Home',
+        description: 'A classic home restored with modern amenities.',
+        category: 'Renovation',
+        url: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Smart Apartment Block',
+        description: 'A multi-storey residential building with smart automation.',
+        category: 'Residential',
+        url: 'https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Retail Mall Expansion',
+        description: 'Expansion of a popular shopping mall with new retail spaces.',
+        category: 'Commercial',
+        url: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Cottage Makeover',
+        description: 'A cozy cottage renovated for modern living.',
+        category: 'Renovation',
+        url: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Eco Office Park',
+        description: 'A green commercial park with solar panels and gardens.',
+        category: 'Commercial',
+        url: 'https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Luxury Penthouse',
+        description: 'A high-rise penthouse with panoramic city views.',
+        category: 'Residential',
+        url: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80',
+      },
+    ];
+
     // Show loading spinner
     galleryGrid.innerHTML = `<div class="d-flex justify-content-center w-100 py-5"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>`;
 
+    // Enhanced error handling for fetch
     fetch('/api/gallery')
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch gallery');
@@ -370,15 +503,17 @@
       })
       .then(images => {
         images.forEach(img => img.featured = Math.random() < 0.25);
-        galleryImages = images;
-        if (!images.length) {
+        galleryImages = images.length ? images : sampleGalleryImages;
+        if (!galleryImages.length) {
           galleryGrid.innerHTML = `<div class='text-center w-100 py-5 text-muted'><i class='bi bi-emoji-frown fs-1'></i><br>No projects found.</div>`;
         } else {
           renderGallery('All', currentSort);
         }
       })
       .catch(err => {
-        galleryGrid.innerHTML = `<div class='text-center w-100 py-5 text-danger'><i class='bi bi-exclamation-triangle fs-1'></i><br>Could not load gallery.<br><span class='small'>${err.message}</span></div>`;
+        // Use sample images if fetch fails
+        galleryImages = sampleGalleryImages;
+        renderGallery('All', currentSort);
       });
 
     function sortGallery(images, sort) {
@@ -404,12 +539,12 @@
         return `
           <div class='col-6 col-md-4 col-lg-3 d-flex align-items-stretch'>
             <div class='gallery-card w-100 h-100 position-relative' data-idx='${galleryImages.indexOf(img)}' style="opacity:0;transform:scale(0.96);transition:all .5s cubic-bezier(.4,2,.3,1);">
-              <img src='${img.url || img.imageUrl}' class='gallery-img' alt='${img.title||"Project"}'>
+              <img src='${img.url || img.imageUrl}' class='gallery-img' alt='${img.title||"Project"}' loading="lazy">
               <span class="gallery-fav"><i class="bi bi-heart"></i></span>
               <div class='gallery-overlay'>
                 <span class="gallery-type-icon ${typeIcon}"></span>
                 <div class='gallery-title'>${img.title||''}</div>
-                <button class='gallery-view-btn btn btn-outline-primary btn-sm mt-2'>View Details</button>
+                <button class='gallery-view-btn btn btn-outline-primary btn-sm mt-2' data-i18n="View Details">View Details</button>
               </div>
             </div>
           </div>
@@ -472,13 +607,27 @@
       if (!galleryImages.length) return;
       currentGalleryIndex = idx;
       const img = galleryImages[idx];
-      document.getElementById('galleryModalImg').src = img.url || img.imageUrl;
-      document.getElementById('galleryModalTitle').textContent = img.title || 'Project';
-      document.getElementById('galleryModalDesc').textContent = img.description || '';
-      document.getElementById('galleryModalCategory').textContent = img.category || '';
-      let modal = new bootstrap.Modal(document.getElementById('galleryModal'));
-      modal.show();
+      // Set modal content efficiently
+      const modalImg = document.getElementById('galleryModalImg');
+      const modalTitle = document.getElementById('galleryModalTitle');
+      const modalDesc = document.getElementById('galleryModalDesc');
+      const modalCategory = document.getElementById('galleryModalCategory');
+      if (modalImg) modalImg.src = img.url || img.imageUrl;
+      if (modalTitle) modalTitle.textContent = img.title || 'Project';
+      if (modalDesc) modalDesc.textContent = img.description || '';
+      if (modalCategory) modalCategory.textContent = img.category || '';
+      // Only create modal instance if not already open
+      const modalEl = document.getElementById('galleryModal');
+      if (modalEl && !modalEl.classList.contains('show')) {
+        let modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+        modal.show();
+      }
     }
+    // Prevent multiple modals or event stacking
+    ['galleryPrevBtn','galleryNextBtn'].forEach(btnId => {
+      const btn = document.getElementById(btnId);
+      if (btn) btn.onclick = null;
+    });
     document.getElementById('galleryPrevBtn').onclick = function() {
       if (!galleryImages.length) return;
       currentGalleryIndex = (currentGalleryIndex-1+galleryImages.length)%galleryImages.length;
@@ -489,6 +638,374 @@
       currentGalleryIndex = (currentGalleryIndex+1)%galleryImages.length;
       openGalleryModal(currentGalleryIndex);
     };
+    // Remove modal event listeners on close to prevent stacking
+    const galleryModalEl = document.getElementById('galleryModal');
+    if (galleryModalEl) {
+      galleryModalEl.addEventListener('hidden.bs.modal', function() {
+        document.getElementById('galleryModalImg').src = '';
+        document.getElementById('galleryModalTitle').textContent = '';
+        document.getElementById('galleryModalDesc').textContent = '';
+        document.getElementById('galleryModalCategory').textContent = '';
+      });
+    }
+    // Add keyboard accessibility for gallery modal navigation
+    document.addEventListener('keydown', function(e) {
+      if (document.body.classList.contains('modal-open')) {
+        if (e.key === 'ArrowLeft') document.getElementById('galleryPrevBtn').click();
+        if (e.key === 'ArrowRight') document.getElementById('galleryNextBtn').click();
+      }
+    });
+
+    // Navbar search logic
+    const navbarSearchBtn = document.getElementById('navbarSearchBtn');
+    const navbarSearchForm = document.getElementById('navbarSearchForm');
+    if (navbarSearchBtn && navbarSearchForm) {
+      navbarSearchBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navbarSearchForm.style.display = navbarSearchForm.style.display === 'none' ? 'flex' : 'none';
+        if (navbarSearchForm.style.display === 'flex') {
+          navbarSearchForm.querySelector('input').focus();
+        }
+      });
+      navbarSearchForm.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+      navbarSearchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const query = navbarSearchForm.querySelector('input').value.trim().toLowerCase();
+        if (!query) return;
+        // Remove previous highlights
+        document.querySelectorAll('.search-highlight').forEach(el => el.classList.remove('search-highlight'));
+        // Only search visible sections (not modals, not hidden)
+        let found = false;
+        // Prefer searching only main sections by id for best UX
+        const sectionIds = ['hero','about','services','gallery','testimonials','contact','admin'];
+        for (const id of sectionIds) {
+          const section = document.getElementById(id);
+          if (section && section.offsetParent !== null && getComputedStyle(section).visibility !== 'hidden') {
+            if (section.textContent.toLowerCase().includes(query)) {
+              section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              section.classList.add('search-highlight');
+              setTimeout(() => section.classList.remove('search-highlight'), 1800);
+              found = true;
+              break;
+            }
+          }
+        }
+        if (!found) {
+          // Fallback: search visible cards
+          const cards = Array.from(document.querySelectorAll('.card')).filter(el => el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden');
+          for (const card of cards) {
+            if (card.textContent.toLowerCase().includes(query)) {
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              card.classList.add('search-highlight');
+              setTimeout(() => card.classList.remove('search-highlight'), 1800);
+              found = true;
+              break;
+            }
+          }
+        }
+        if (!found) {
+          alert('No results found for: ' + query);
+        }
+        navbarSearchForm.style.display = 'none';
+        navbarSearchForm.querySelector('input').value = '';
+      });
+      // Hide search box on outside click
+      document.addEventListener('click', function(e) {
+        if (!navbarSearchForm.contains(e.target) && e.target !== navbarSearchBtn && !navbarSearchBtn.contains(e.target)) {
+          navbarSearchForm.style.display = 'none';
+        }
+      });
+    }
+
+    // Toast notification logic
+    function showToast(message, type = 'info') {
+      const toastContainer = document.getElementById('cbmsToast');
+      const toastId = 'toast-' + Date.now();
+      const toastHTML = `
+        <div id="${toastId}" class="toast align-items-center text-bg-${type} border-0" role="alert" aria-live="assertive" aria-atomic="true" style="position:relative;z-index:1050;">
+          <div class="d-flex">
+            <div class="toast-body">
+              ${message}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+        </div>
+      `;
+      toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+      const toastElement = document.getElementById(toastId);
+      const toast = new bootstrap.Toast(toastElement);
+      toast.show();
+      toastElement.addEventListener('hidden.bs.toast', () => {
+        toastElement.remove();
+      });
+    }
+
+    // Help/FAQ modal
+    const helpBtn = document.getElementById('helpBtn');
+    const helpModal = document.getElementById('helpModal');
+    const helpModalClose = document.getElementById('helpModalClose');
+    helpBtn.addEventListener('click', () => {
+      helpModal.style.display = 'flex';
+      setTimeout(() => helpModal.classList.add('show'), 10);
+    });
+    helpModalClose.addEventListener('click', () => {
+      helpModal.classList.remove('show');
+      setTimeout(() => helpModal.style.display = 'none', 300);
+    });
+    // Close modal on outside click
+    window.addEventListener('click', (e) => {
+      if (helpModal.style.display === 'flex' && !helpModal.contains(e.target) && e.target !== helpBtn) {
+        helpModal.classList.remove('show');
+        setTimeout(() => helpModal.style.display = 'none', 300);
+      }
+    });
+    // Keyboard navigation for modals
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        if (helpModal.classList.contains('show')) {
+          helpModal.classList.remove('show');
+          setTimeout(() => helpModal.style.display = 'none', 300);
+        }
+      }
+    });
+
+    // --- Live Search Suggestions Logic ---
+    const searchSuggestions = document.getElementById('searchSuggestions');
+    const searchInput = document.querySelector('input[aria-label="Search"]');
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      // Clear previous suggestions
+      searchSuggestions.innerHTML = '';
+      if (!query) return;
+      // Fetch and display suggestions
+      fetch(`/api/search-suggestions?query=${encodeURIComponent(query)}`)
+        .then(res => res.json())
+        .then(suggestions => {
+          suggestions.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'dropdown-item';
+            div.textContent = item;
+            div.onclick = () => {
+              searchInput.value = item;
+              searchSuggestions.innerHTML = '';
+              // Optionally, submit the search form or trigger search
+              navbarSearchForm.dispatchEvent(new Event('submit'));
+            };
+            searchSuggestions.appendChild(div);
+          });
+          if (suggestions.length === 0) {
+            const div = document.createElement('div');
+            div.className = 'dropdown-item text-muted';
+            div.textContent = 'No suggestions found';
+            searchSuggestions.appendChild(div);
+          }
+        })
+        .catch(err => {
+          console.error('Error fetching search suggestions:', err);
+        });
+    });
+
+    // --- PWA Service Worker Registration ---
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(reg) {
+          // Registration successful
+        }, function(err) {
+          // Registration failed
+        });
+      });
+    }
+
+    // --- Language Selector Logic ---
+    const langSelect = document.getElementById('langSelect');
+    if (langSelect) {
+      langSelect.addEventListener('change', function() {
+        const selectedLang = this.value;
+        // TODO: Implement language change logic, e.g., reload with new lang param
+        console.log('Language changed to:', selectedLang);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Toast notification container should be visible
+      var cbmsToast = document.getElementById('cbmsToast');
+      if (cbmsToast) cbmsToast.style.display = 'block';
+
+      // Dark/Light mode toggle
+      var modeToggleBtn = document.getElementById('modeToggleBtn');
+      var body = document.body;
+      if (modeToggleBtn) {
+        modeToggleBtn.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          var isDarkMode = body.classList.contains('dark-mode');
+          modeToggleBtn.setAttribute('aria-label', isDarkMode ? 'Switch to light mode' : 'Switch to dark mode');
+          var icon = modeToggleBtn.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('bi-moon-stars', !isDarkMode);
+            icon.classList.toggle('bi-sun', isDarkMode);
+          }
+          if (typeof showToast === 'function') {
+            showToast(`Switched to ${isDarkMode ? 'dark' : 'light'} mode`, 'success');
+          }
+        });
+      }
+
+      // Help/FAQ modal logic
+      var helpBtn = document.getElementById('helpBtn');
+      var helpModal = document.getElementById('helpModal');
+      var helpModalClose = document.getElementById('helpModalClose');
+      if (helpBtn && helpModal && helpModalClose) {
+        helpBtn.addEventListener('click', function() {
+          helpModal.style.display = 'flex';
+          setTimeout(function() { helpModal.classList.add('show'); }, 10);
+        });
+        helpModalClose.addEventListener('click', function() {
+          helpModal.classList.remove('show');
+          setTimeout(function() { helpModal.style.display = 'none'; }, 300);
+        });
+        window.addEventListener('click', function(e) {
+          if (helpModal.style.display === 'flex' && !helpModal.contains(e.target) && e.target !== helpBtn) {
+            helpModal.classList.remove('show');
+            setTimeout(function() { helpModal.style.display = 'none'; }, 300);
+          }
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && helpModal.classList.contains('show')) {
+            helpModal.classList.remove('show');
+            setTimeout(function() { helpModal.style.display = 'none'; }, 300);
+          }
+        });
+      }
+    });
   </script>
+  <style>
+    /* Add highlight effect for search results */
+    .search-highlight {
+      outline: 3px solid #00dfd8;
+      box-shadow: 0 0 0 6px #00dfd855 !important;
+      transition: box-shadow .3s, outline .3s;
+    }
+    /* Toast notification custom styles */
+    .cbms-toast {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1050;
+      min-width: 200px;
+      max-width: 300px;
+      width: auto;
+    }
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode a {
+      color: #bb86fc;
+    }
+    body.dark-mode .navbar,
+    body.dark-mode .footer {
+      background-color: #1e1e1e;
+    }
+    body.dark-mode .card {
+      background-color: #2c2c2c;
+      border-color: #444;
+    }
+    body.dark-mode .modal-content {
+      background-color: #2c2c2c;
+      color: #e0e0e0;
+    }
+    body.dark-mode .form-control {
+      background-color: #333;
+      color: #e0e0e0;
+      border: 1px solid #444;
+    }
+    body.dark-mode .form-control:focus {
+      background-color: #444;
+      color: #e0e0e0;
+      border-color: #bb86fc;
+      box-shadow: 0 0 0 0.2rem rgba(187,134,252,0.25);
+    }
+    body.dark-mode .btn-primary {
+      background-color: #bb86fc;
+      border-color: #bb86fc;
+    }
+    body.dark-mode .btn-primary:hover {
+      background-color: #9b59b6;
+      border-color: #9b59b6;
+    }
+    body.dark-mode .dropdown-menu {
+      background-color: #2c2c2c;
+      border-color: #444;
+    }
+    body.dark-mode .dropdown-item {
+      color: #e0e0e0;
+    }
+    body.dark-mode .dropdown-item:hover {
+      background-color: #444;
+    }
+    /* Help modal specific styles */
+    .help-modal-content {
+      max-width: 90vw;
+      width: 420px;
+      background: rgba(34, 38, 45, 0.98);
+      border-radius: 1.2rem;
+      box-shadow: 0 8px 40px #007cf055;
+      padding: 2rem;
+      position: relative;
+    }
+    .help-modal-content h2 {
+      color: #00dfd8;
+      margin-bottom: 1rem;
+    }
+    .help-modal-content ul {
+      padding-left: 1.2rem;
+    }
+    .help-modal-content li {
+      margin-bottom: 0.5rem;
+    }
+    /* Floating help button */
+    #helpBtn {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: #007cf0;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 2000;
+      transition: background 0.3s;
+    }
+    #helpBtn:hover {
+      background: #005bb5;
+    }
+  </style>
+  <!-- Toast notification container (auto-generated by JS, but placeholder for accessibility) -->
+  <div id="cbmsToast" class="cbms-toast" style="display:none;" aria-live="polite" role="status"></div>
+  <!-- Floating Help/FAQ Button -->
+  <button id="helpBtn" aria-label="Help & FAQ" title="Help & FAQ"><i class="bi bi-question-circle"></i></button>
+  <!-- Help/FAQ Modal -->
+  <div id="helpModal" class="modal fade" tabindex="-1" aria-hidden="true" style="display:none;z-index:2000;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;">
+    <div class="help-modal-content" tabindex="0" style="background:rgba(34,38,45,0.98);border-radius:1.2rem;box-shadow:0 8px 40px #007cf055;padding:2rem;max-width:420px;width:90vw;outline:none;position:relative;">
+      <button id="helpModalClose" aria-label="Close help" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#00dfd8;font-size:1.5rem;cursor:pointer;"><i class="bi bi-x-lg"></i></button>
+      <h2 style="color:#00dfd8;">Help & FAQ</h2>
+      <ul style="padding-left:1.2rem;">
+        <li><b>How do I switch between dark and light mode?</b><br>Click the <i class="bi bi-moon-stars"></i> button in the navbar.</li>
+        <li><b>How do I search for content?</b><br>Use the search box in the navbar for live suggestions and section highlighting.</li>
+        <li><b>How do I access my profile?</b><br>Click the <i class="bi bi-person-circle"></i> avatar in the navbar.</li>
+        <li><b>Need more help?</b><br>Contact us via the Contact section below.</li>
+      </ul>
+    </div>
+  </div>
+  <!-- === MULTI-LANGUAGE SELECTOR === -->
 </body>
 </html>

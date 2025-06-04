@@ -7,7 +7,107 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <style>body{font-family:'Roboto',Arial,sans-serif;background:#f5f7fa;}h1{font-family:'Montserrat',Arial,sans-serif;}</style>
+  <style>
+body {
+  background: linear-gradient(135deg, #232526 0%, #283e51 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
+  min-height: 100vh;
+  color: #eafaff;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+.section-divider {
+  border: none;
+  border-top: 3px solid #0dcaf0;
+  width: 60px;
+  margin: 2rem auto 2.5rem auto;
+  opacity: 0.8;
+}
+h1, h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 16px #0dcaf044, 0 1px 2px #000;
+  color: #0dcaf0;
+}
+.card {
+  border-radius: 1.5rem;
+  background: rgba(34, 49, 63, 0.85);
+  box-shadow: 0 8px 32px 0 rgba(13,202,240,0.18), 0 1.5px 6px 0 rgba(0,0,0,0.18);
+  border: 1px solid rgba(13,202,240,0.15);
+  transition: transform 0.18s, box-shadow 0.18s;
+  backdrop-filter: blur(4px);
+  color: #eafaff;
+}
+.card:hover {
+  transform: translateY(-7px) scale(1.025);
+  box-shadow: 0 16px 40px 0 rgba(13,202,240,0.28), 0 2px 8px 0 rgba(0,0,0,0.18);
+  border-color: #0dcaf0;
+}
+.btn-outline-info, .btn-info, .btn-outline-success, .btn-outline-warning, .btn-outline-primary {
+  border-radius: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px #0dcaf033;
+  color: #0dcaf0;
+  border-color: #0dcaf0;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-info:hover, .btn-info:hover, .btn-outline-success:hover, .btn-outline-warning:hover, .btn-outline-primary:hover {
+  background: #0dcaf0;
+  color: #232526;
+  border-color: #0dcaf0;
+}
+.modal-content {
+  border-radius: 1.2rem;
+  background: rgba(34, 49, 63, 0.97);
+  box-shadow: 0 8px 32px 0 rgba(13,202,240,0.18);
+  border: 1px solid #0dcaf033;
+  color: #eafaff;
+}
+.table thead th {
+  background: #232526;
+  color: #0dcaf0;
+  font-weight: 700;
+  border-top: none;
+}
+.table, .table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(13,202,240,0.04);
+  color: #eafaff;
+}
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: rgba(34,49,63,0.7);
+}
+.list-group-item {
+  border-radius: 0.7rem;
+  margin-bottom: 0.5rem;
+  background: rgba(13,202,240,0.10);
+  color: #eafaff;
+  border: 1px solid #0dcaf033;
+}
+.navbar, .navbar-dark.bg-info {
+  background: linear-gradient(90deg, #232526 0%, #0dcaf0 100%) !important;
+}
+a, a:visited {
+  color: #0dcaf0;
+  text-decoration: underline;
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background: #232526;
+}
+::-webkit-scrollbar-thumb {
+  background: #0dcaf0;
+  border-radius: 4px;
+}
+@media (max-width: 768px) {
+  .card { border-radius: 1rem; }
+  .modal-content { border-radius: 0.8rem; }
+}
+</style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
@@ -15,14 +115,178 @@
   </nav>
   <div class="container">
     <h1 class="mb-4 text-info"><i class="bi bi-people"></i> Worker Management</h1>
-    <p>Assign tasks, track attendance, and monitor worker performance. This module helps you manage your workforce efficiently and transparently.</p>
-    <ul>
-      <li>Attendance tracking and reporting</li>
-      <li>Task assignment and progress monitoring</li>
-      <li>Automated payroll calculations</li>
-      <li>Performance analytics</li>
-    </ul>
+    <hr class="section-divider">
+    
     <a href="Index.html#services" class="btn btn-outline-info mt-3"><i class="bi bi-arrow-left"></i> Back to Services</a>
   </div>
+
+  <!-- Worker Management Features Section -->
+  <section class="container py-5" id="worker-features">
+    <h2 class="text-center mb-4"><i class="bi bi-people"></i> Worker Management Features</h2>
+    <div class="row g-4">
+      <!-- Attendance Tracking -->
+      <div class="col-md-6">
+        <div class="card border-info h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-calendar-check text-info"></i> Attendance Tracking</h5>
+            <p class="card-text">Track daily attendance and generate detailed reports for your workforce.</p>
+            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#attendanceModal">View Attendance</button>
+          </div>
+        </div>
+      </div>
+      <!-- Task Assignment -->
+      <div class="col-md-6">
+        <div class="card border-success h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-list-check text-success"></i> Task Assignment</h5>
+            <p class="card-text">Assign tasks to workers and monitor their progress in real time.</p>
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#taskModal">Assign Tasks</button>
+          </div>
+        </div>
+      </div>
+      <!-- Payroll Calculations -->
+      <div class="col-md-6">
+        <div class="card border-warning h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-cash-coin text-warning"></i> Payroll Calculations</h5>
+            <p class="card-text">Automate payroll based on attendance and completed tasks.</p>
+            <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#payrollModal">View Payroll</button>
+          </div>
+        </div>
+      </div>
+      <!-- Performance Analytics -->
+      <div class="col-md-6">
+        <div class="card border-primary h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-bar-chart-line text-primary"></i> Performance Analytics</h5>
+            <p class="card-text">Analyze worker performance with visual analytics and reports.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#performanceModal">View Analytics</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attendance Modal -->
+  <div class="modal fade" id="attendanceModal" tabindex="-1" aria-labelledby="attendanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="attendanceModalLabel">Attendance Tracking</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Worker</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Doe</td>
+                <td>2025-06-04</td>
+                <td><span class="badge bg-success">Present</span></td>
+              </tr>
+              <tr>
+                <td>Jane Smith</td>
+                <td>2025-06-04</td>
+                <td><span class="badge bg-danger">Absent</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Assignment Modal -->
+  <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="taskModalLabel">Task Assignment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="workerSelect" class="form-label">Select Worker</label>
+              <select class="form-select" id="workerSelect">
+                <option>John Doe</option>
+                <option>Jane Smith</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="taskDesc" class="form-label">Task Description</label>
+              <input type="text" class="form-control" id="taskDesc">
+            </div>
+            <button type="submit" class="btn btn-success">Assign Task</button>
+          </form>
+          <hr>
+          <h6>Current Tasks</h6>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Lay foundation
+              <span class="badge bg-info">In Progress</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payroll Modal -->
+  <div class="modal fade" id="payrollModal" tabindex="-1" aria-labelledby="payrollModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="payrollModalLabel">Payroll Calculations</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Worker</th>
+                <th>Days Present</th>
+                <th>Pay Rate</th>
+                <th>Total Pay</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Doe</td>
+                <td>22</td>
+                <td>$100</td>
+                <td>$2200</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance Analytics Modal -->
+  <div class="modal fade" id="performanceModal" tabindex="-1" aria-labelledby="performanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="performanceModalLabel">Performance Analytics</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info">
+            <i class="bi bi-bar-chart-line"></i> Worker performance analytics coming soon!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -7,7 +7,107 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <style>body{font-family:'Roboto',Arial,sans-serif;background:#f5f7fa;}h1{font-family:'Montserrat',Arial,sans-serif;}</style>
+  <style>
+body {
+  background: linear-gradient(135deg, #232526 0%, #234e38 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
+  min-height: 100vh;
+  color: #eafff3;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+.section-divider {
+  border: none;
+  border-top: 3px solid #43d39e;
+  width: 60px;
+  margin: 2rem auto 2.5rem auto;
+  opacity: 0.8;
+}
+h1, h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 16px #43d39e44, 0 1px 2px #000;
+  color: #43d39e;
+}
+.card {
+  border-radius: 1.5rem;
+  background: rgba(34, 49, 43, 0.85);
+  box-shadow: 0 8px 32px 0 rgba(67,211,158,0.18), 0 1.5px 6px 0 rgba(0,0,0,0.18);
+  border: 1px solid rgba(67,211,158,0.15);
+  transition: transform 0.18s, box-shadow 0.18s;
+  backdrop-filter: blur(4px);
+  color: #eafff3;
+}
+.card:hover {
+  transform: translateY(-7px) scale(1.025);
+  box-shadow: 0 16px 40px 0 rgba(67,211,158,0.28), 0 2px 8px 0 rgba(0,0,0,0.18);
+  border-color: #43d39e;
+}
+.btn-outline-success, .btn-success, .btn-outline-primary, .btn-outline-warning, .btn-outline-info {
+  border-radius: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px #43d39e33;
+  color: #43d39e;
+  border-color: #43d39e;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-success:hover, .btn-success:hover, .btn-outline-primary:hover, .btn-outline-warning:hover, .btn-outline-info:hover {
+  background: #43d39e;
+  color: #232526;
+  border-color: #43d39e;
+}
+.modal-content {
+  border-radius: 1.2rem;
+  background: rgba(34, 49, 43, 0.97);
+  box-shadow: 0 8px 32px 0 rgba(67,211,158,0.18);
+  border: 1px solid #43d39e33;
+  color: #eafff3;
+}
+.table thead th {
+  background: #232526;
+  color: #43d39e;
+  font-weight: 700;
+  border-top: none;
+}
+.table, .table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(67,211,158,0.04);
+  color: #eafff3;
+}
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: rgba(34,49,43,0.7);
+}
+.list-group-item {
+  border-radius: 0.7rem;
+  margin-bottom: 0.5rem;
+  background: rgba(67,211,158,0.10);
+  color: #eafff3;
+  border: 1px solid #43d39e33;
+}
+.navbar, .navbar-dark.bg-success {
+  background: linear-gradient(90deg, #232526 0%, #43d39e 100%) !important;
+}
+a, a:visited {
+  color: #43d39e;
+  text-decoration: underline;
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background: #232526;
+}
+::-webkit-scrollbar-thumb {
+  background: #43d39e;
+  border-radius: 4px;
+}
+@media (max-width: 768px) {
+  .card { border-radius: 1rem; }
+  .modal-content { border-radius: 0.8rem; }
+}
+</style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
@@ -15,14 +115,204 @@
   </nav>
   <div class="container">
     <h1 class="mb-4 text-success"><i class="bi bi-bar-chart"></i> Project Tracking</h1>
-    <p>Monitor project progress, deadlines, and deliverables in real time. Visual dashboards and Gantt charts keep your team aligned and on schedule.</p>
-    <ul>
-      <li>Milestone tracking</li>
-      <li>Gantt chart visualization</li>
-      <li>Real-time notifications</li>
-      <li>Progress analytics</li>
-    </ul>
+    
     <a href="Index.html#services" class="btn btn-outline-success mt-3"><i class="bi bi-arrow-left"></i> Back to Services</a>
   </div>
+
+  <!-- Project Tracking Features Section -->
+  <section class="container py-5" id="project-tracking-features">
+    <h2 class="text-center mb-4"><i class="bi bi-bar-chart"></i> Project Tracking Features</h2>
+    <div class="row g-4">
+      <!-- Milestone Tracking -->
+      <div class="col-md-6">
+        <div class="card border-success h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-flag text-success"></i> Milestone Tracking</h5>
+            <p class="card-text">Define, assign, and monitor project milestones to ensure timely completion of deliverables.</p>
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#milestoneModal">View Milestones</button>
+          </div>
+        </div>
+      </div>
+      <!-- Gantt Chart Visualization -->
+      <div class="col-md-6">
+        <div class="card border-primary h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-diagram-3 text-primary"></i> Gantt Chart Visualization</h5>
+            <p class="card-text">Visualize your project timeline and dependencies with interactive Gantt charts.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ganttModal">View Gantt Chart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Real-time Notifications -->
+      <div class="col-md-6">
+        <div class="card border-warning h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-bell text-warning"></i> Real-time Notifications</h5>
+            <p class="card-text">Stay updated with instant notifications on project changes and deadlines.</p>
+            <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#notificationModal">View Notifications</button>
+          </div>
+        </div>
+      </div>
+      <!-- Progress Analytics -->
+      <div class="col-md-6">
+        <div class="card border-info h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-graph-up-arrow text-info"></i> Progress Analytics</h5>
+            <p class="card-text">Analyze project progress with visual analytics and performance reports.</p>
+            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#analyticsModal">View Analytics</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Milestone Modal -->
+  <div class="modal fade" id="milestoneModal" tabindex="-1" aria-labelledby="milestoneModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="milestoneModalLabel">Milestone Tracking</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Milestone</th>
+                <th>Due Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Foundation Complete</td>
+                <td>2025-06-10</td>
+                <td><span class="badge bg-success">Completed</span></td>
+              </tr>
+              <tr>
+                <td>Framing</td>
+                <td>2025-06-20</td>
+                <td><span class="badge bg-warning text-dark">In Progress</span></td>
+              </tr>
+              <tr>
+                <td>Roofing</td>
+                <td>2025-07-01</td>
+                <td><span class="badge bg-secondary">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gantt Chart Modal -->
+  <div class="modal fade" id="ganttModal" tabindex="-1" aria-labelledby="ganttModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ganttModalLabel">Gantt Chart Visualization</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Placeholder for Gantt Chart -->
+          <div class="alert alert-primary text-center">
+            <i class="bi bi-diagram-3"></i> Interactive Gantt chart coming soon!
+          </div>
+          <!-- Example static Gantt chart (replace with JS chart later) -->
+          <div class="table-responsive">
+            <table class="table table-bordered align-middle text-center">
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th colspan="6">June 2025</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th>Week 1</th>
+                  <th>Week 2</th>
+                  <th>Week 3</th>
+                  <th>Week 4</th>
+                  <th>Week 5</th>
+                  <th>Week 6</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Foundation</td>
+                  <td class="bg-success"></td>
+                  <td class="bg-success"></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Framing</td>
+                  <td></td>
+                  <td class="bg-warning"></td>
+                  <td class="bg-warning"></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Roofing</td>
+                  <td></td>
+                  <td></td>
+                  <td class="bg-secondary"></td>
+                  <td class="bg-secondary"></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notifications Modal -->
+  <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="notificationModalLabel">Real-time Notifications</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group">
+            <li class="list-group-item"><i class="bi bi-bell-fill text-warning"></i> <strong>Framing milestone</strong> is now <span class="badge bg-warning text-dark">In Progress</span>.</li>
+            <li class="list-group-item"><i class="bi bi-bell-fill text-success"></i> <strong>Foundation milestone</strong> marked as <span class="badge bg-success">Completed</span>.</li>
+            <li class="list-group-item"><i class="bi bi-bell-fill text-secondary"></i> <strong>Roofing milestone</strong> is <span class="badge bg-secondary">Pending</span>.</li>
+          </ul>
+          <div class="alert alert-info mt-3">
+            <i class="bi bi-info-circle"></i> Real-time notifications will appear here as your project progresses.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Analytics Modal -->
+  <div class="modal fade" id="analyticsModal" tabindex="-1" aria-labelledby="analyticsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="analyticsModalLabel">Progress Analytics</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info text-center">
+            <i class="bi bi-graph-up-arrow"></i> Project progress analytics coming soon!
+          </div>
+          <!-- Placeholder for future analytics charts -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
