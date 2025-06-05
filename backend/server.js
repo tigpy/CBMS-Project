@@ -178,6 +178,25 @@ app.delete('/api/gallery/:id', async (req, res) => {
   }
 });
 
+// --- Bulk Delete Contacts ---
+app.delete('/api/contacts', async (req, res) => {
+  try {
+    await Contact.deleteMany({});
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete all contacts.' });
+  }
+});
+// --- Bulk Delete Gallery ---
+app.delete('/api/gallery', async (req, res) => {
+  try {
+    await Gallery.deleteMany({});
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete all gallery images.' });
+  }
+});
+
 // Error handling middleware for cleaner error responses
 app.use((err, req, res, next) => {
   console.error(err.stack);

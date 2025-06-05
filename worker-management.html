@@ -111,18 +111,24 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form novalidate aria-label="Task Assignment Form">
             <div class="mb-3">
               <label for="workerSelect" class="form-label">Select Worker</label>
-              <select class="form-select" id="workerSelect">
+              <select class="form-select" id="workerSelect" required aria-required="true" aria-describedby="workerSelectHelp">
+                <option value="">Choose...</option>
                 <option>John Doe</option>
                 <option>Jane Smith</option>
               </select>
+              <div id="workerSelectHelp" class="form-text">Assign to a worker</div>
+              <div class="invalid-feedback">Please select a worker.</div>
             </div>
             <div class="mb-3">
               <label for="taskDesc" class="form-label">Task Description</label>
-              <input type="text" class="form-control" id="taskDesc">
+              <input type="text" class="form-control" id="taskDesc" required aria-required="true" aria-describedby="taskDescHelp">
+              <div id="taskDescHelp" class="form-text">Describe the task clearly</div>
+              <div class="invalid-feedback">Task description is required.</div>
             </div>
+            <div id="taskFormFeedback" aria-live="polite" class="mb-2"></div>
             <button type="submit" class="btn btn-success">Assign Task</button>
           </form>
           <hr>
@@ -179,15 +185,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="alert alert-info">
-            <i class="bi bi-bar-chart-line"></i> Worker performance analytics coming soon!
-          </div>
+          <div id="worker-performance-chart-container" style="width:100%;height:300px;"></div>
         </div>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="src/pages/worker-management.js"></script>
 </body>
 </html>

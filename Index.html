@@ -357,7 +357,7 @@
   <!-- Contact Form -->
   <section class="container py-5" id="contact">
     <h2 class="text-center mb-4" data-i18n="Contact Us"><i class="bi bi-envelope"></i> Contact Us</h2>
-    <form id="contactForm" class="mx-auto" style="max-width:500px;" aria-label="Contact form">
+    <form id="contactForm" class="mx-auto" style="max-width:500px;" aria-label="Contact form" novalidate>
       <div class="mb-3">
         <label for="name" class="form-label" data-i18n="Name">Name</label>
         <input type="text" class="form-control" id="name" required aria-required="true" aria-label="Name">
@@ -373,9 +373,10 @@
         <textarea class="form-control" id="message" rows="4" required aria-required="true" aria-label="Message"></textarea>
         <div class="invalid-feedback" data-i18n="Please enter your message.">Please enter your message.</div>
       </div>
+      <div id="contactFormFeedback" aria-live="polite" class="mb-2"></div>
       <button type="submit" class="btn btn-primary" aria-label="Send message"><i class="bi bi-send"></i> Send</button>
     </form>
-    <div id="contactSuccess" class="alert alert-success mt-3 d-none" data-i18n="Thank you for contacting us!">Thank you for contacting us!</div>
+    <div id="contactSuccess" class="alert alert-success mt-3 d-none" data-i18n="Thank you for contacting us!" aria-live="polite">Thank you for contacting us!</div>
     <div class="alert alert-warning mt-3">
       <strong>New!</strong> Try our <a href="#aiEstimatorModal" data-bs-toggle="modal" class="alert-link" data-i18n="AI Project Estimator">AI Project Estimator</a> for instant project cost and timeline estimates.
     </div>
@@ -384,7 +385,7 @@
   <!-- Admin Login Form -->
   <section class="container py-5" id="admin">
     <h2 class="text-center mb-4" data-i18n="Admin Login"><i class="bi bi-shield-lock"></i> Admin Login</h2>
-    <form id="adminLoginForm" class="mx-auto" style="max-width:400px;" aria-label="Admin login form">
+    <form id="adminLoginForm" class="mx-auto" style="max-width:400px;" aria-label="Admin login form" novalidate>
       <div class="mb-3">
         <label for="adminUser" class="form-label" data-i18n="Username">Username</label>
         <input type="text" class="form-control" id="adminUser" required aria-required="true" aria-label="Admin Username">
@@ -393,9 +394,10 @@
         <label for="adminPass" class="form-label" data-i18n="Password">Password</label>
         <input type="password" class="form-control" id="adminPass" required aria-required="true" aria-label="Admin Password">
       </div>
+      <div id="adminFormFeedback" aria-live="polite" class="mb-2"></div>
       <button type="submit" class="btn btn-primary" aria-label="Login"><i class="bi bi-box-arrow-in-right"></i> Login</button>
     </form>
-    <div id="adminLoginMsg" class="alert mt-3 d-none"></div>
+    <div id="adminLoginMsg" class="alert mt-3 d-none" aria-live="polite"></div>
   </section>
 
   <!-- About Us Section (moved to bottom) -->

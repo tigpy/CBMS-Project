@@ -8,6 +8,32 @@ if (aiEstimatorForm) {
     const type = document.getElementById('estimatorProjectType').value;
     const area = parseFloat(document.getElementById('estimatorArea').value);
     const budget = parseFloat(document.getElementById('estimatorBudget').value) || null;
+    // Validation
+    let valid = true;
+    if (!name) {
+      document.getElementById('estimatorProjectName').classList.add('is-invalid');
+      valid = false;
+    } else {
+      document.getElementById('estimatorProjectName').classList.remove('is-invalid');
+    }
+    if (!type) {
+      document.getElementById('estimatorProjectType').classList.add('is-invalid');
+      valid = false;
+    } else {
+      document.getElementById('estimatorProjectType').classList.remove('is-invalid');
+    }
+    if (!area || area < 1) {
+      document.getElementById('estimatorArea').classList.add('is-invalid');
+      valid = false;
+    } else {
+      document.getElementById('estimatorArea').classList.remove('is-invalid');
+    }
+    if (!valid) {
+      aiEstimatorResult.className = 'alert alert-danger mt-3';
+      aiEstimatorResult.textContent = 'Please fill all required fields correctly.';
+      aiEstimatorResult.classList.remove('d-none');
+      return;
+    }
     // Simple AI-like logic for demo
     let baseRate = 0;
     let duration = 0;
@@ -44,7 +70,9 @@ if (aiEstimatorForm) {
       }
     })
     .catch(err => {
-      console.error('Failed to save estimator data:', err);
+      aiEstimatorResult.className = 'alert alert-danger mt-3';
+      aiEstimatorResult.textContent = 'Failed to save estimator data.';
+      aiEstimatorResult.classList.remove('d-none');
     });
     if (budget && budget < cost) {
       aiEstimatorResult.className = 'alert alert-warning mt-3';
@@ -53,6 +81,7 @@ if (aiEstimatorForm) {
       aiEstimatorResult.className = 'alert alert-info mt-3';
       aiEstimatorResult.innerHTML = `<strong>Estimated Cost:</strong> ₹${cost.toLocaleString()}<br><strong>Estimated Duration:</strong> ${months} month(s)`;
     }
+    aiEstimatorResult.setAttribute('aria-live', 'polite');
     aiEstimatorResult.classList.remove('d-none');
   });
 }

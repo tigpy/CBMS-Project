@@ -522,6 +522,33 @@ document.addEventListener('DOMContentLoaded', function() {
       'Close help': '关闭帮助'
     }
   };
+  // --- Language Selector Logic ---
+  if (langSelect) {
+    langSelect.setAttribute('aria-label', 'Select language');
+    langSelect.setAttribute('aria-live', 'polite');
+    langSelect.addEventListener('change', function() {
+      const lang = this.value;
+      localStorage.setItem('cbms-lang', lang);
+      translatePage(lang);
+      showToast('Language switched to ' + this.options[this.selectedIndex].text, 'info');
+    });
+    // Keyboard navigation for accessibility
+    langSelect.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.size = this.options.length;
+      } else if (e.key === 'Escape') {
+        this.size = 0;
+      }
+    });
+    langSelect.addEventListener('blur', function() { this.size = 0; });
+    // On load, set language
+    const savedLang = localStorage.getItem('cbms-lang') || 'en';
+    langSelect.value = savedLang;
+    translatePage(savedLang);
+  }
+
+  // --- Translation Fallback and Dynamic i18n ---
   function translatePage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -529,19 +556,10 @@ document.addEventListener('DOMContentLoaded', function() {
         el.textContent = translations[lang][key];
       } else if (translations['en'][key]) {
         el.textContent = translations['en'][key];
+      } else {
+        // Fallback: keep original text
       }
     });
-  }
-  if (langSelect) {
-    langSelect.addEventListener('change', function() {
-      const lang = this.value;
-      localStorage.setItem('cbms-lang', lang);
-      translatePage(lang);
-    });
-    // On load, set language
-    const savedLang = localStorage.getItem('cbms-lang') || 'en';
-    langSelect.value = savedLang;
-    translatePage(savedLang);
   }
 });
 
